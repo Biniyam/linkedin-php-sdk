@@ -1,4 +1,4 @@
-Example
+OAuth2 Example
 -------
 
 	$linkedin = new LinkedIn(array(
