@@ -31,4 +31,8 @@ OAuth2 Example
 GET
 ---
 
-	$linkedin->makeRequest('GET', '/people/~');
+	$linkedin->get('/people/~');
+	
+POST
+---
+	$linkedin->post('/people/~', $options);

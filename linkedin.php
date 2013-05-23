@@ -104,7 +104,7 @@ class LinkedIn
 		return $this->makeRequest('GET', $endpoint);
 	}
 	
-	public function post($endpoint){
+	public function post($endpoint, $options){
 		return $this->makeRequest('POST', $endpoint, $options);
 	}
 		  
