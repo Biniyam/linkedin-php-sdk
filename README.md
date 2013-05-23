@@ -35,4 +35,4 @@ GET
 	
 POST
 ---
-	$linkedin->post('/people/~', $options);
+	$linkedin->post('/people-search/', $options);
