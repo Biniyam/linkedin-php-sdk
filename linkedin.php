@@ -100,22 +100,12 @@ class LinkedIn
 		return json_decode($response);
 	}
 	
-	public function peopleConnections($id='~')
-	{
-		$response = $this->makeRequest('GET', '/people/'.$id.'/connections');
-		return $response;
+	public function get($endpoint){
+		return $this->makeRequest('GET', $endpoint);
 	}
 	
-	public function peopleSearch($params)
-	{
-		$response = $this->makeRequest('GET', '/people-search', $params);
-		return $response;
-	}
-	
-	public function profile($id = '~')
-	{
-		$response = $this->makeRequest('GET', '/people/'.$id);
-		return $response;
+	public function post($endpoint){
+		return $this->makeRequest('POST', $endpoint, $options);
 	}
 		  
 }
