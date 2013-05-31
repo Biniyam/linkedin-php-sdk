@@ -1,5 +1,5 @@
 # Overview
-This is an PHP SDK to help with communicating with the LinkedIn API.
+This is a PHP SDK to help communication with the LinkedIn API.
 
 ## Init
 	$linkedin = new LinkedIn(array(
