@@ -99,8 +99,8 @@ class LinkedIn
 		return json_decode($response);
 	}
 	
-	public function get($endpoint){
-		return $this->makeRequest('GET', $endpoint);
+	public function get($endpoint, $options){
+		return $this->makeRequest('GET', $endpoint, $options);
 	}
 	
 	public function post($endpoint, $options){
