@@ -22,7 +22,7 @@ class LinkedIn
 		$this->_callbackUrl = $config['callbackUrl'];
 	}
 	
-	public function getAuthorizationCode($scope="") 
+	public function getLoginUrl($scope="") 
 	{
 		$params = array('response_type' => 'code',
 		'client_id' => $this->_apiKey,
@@ -34,8 +34,7 @@ class LinkedIn
 		$uri = self::OAUTH_BASE_URI.'/authorization?' . http_build_query($params);
 		$_SESSION['state'] = $params['state'];
 		
-		header("Location: $uri");
-		exit;
+		return $uri;
 	}
 	
 	public function getAccessToken($code) 

@@ -22,7 +22,8 @@ if (isset($_GET['code'])) {
 		$_SESSION = array();
 	}
 	if (empty($_SESSION['access_token'])) {
-		$linkedin->getAuthorizationCode("r_fullprofile r_emailaddress rw_nus r_network");
+		$url = $linkedin->getLoginUrl("r_fullprofile r_emailaddress rw_nus r_network"); // Takes scope
+		header("Location: " . $url)
 	}
 }
 ```
