@@ -1,5 +1,5 @@
 # Overview
-This is a PHP SDK to help communication with the LinkedIn API.
+This is a PHP SDK to help communication with the LinkedIn API using OAuth 2 flow.
 
 ## Init
 ```php
@@ -12,23 +12,30 @@ $linkedin = new LinkedIn(array(
 ## Obtaining an access token example
 ```php
 if (isset($_GET['code'])) {
+  // Check to see if our states match
 	if ($_SESSION['state'] == $_GET['state']) {
+	  // If alls good the pass the code to the get assess token function; returns (String) accesstoken
 		$token = $linkedin->getAccessToken($this->_request->code);
 	} else {
-		throw new LinkedInException("Error occured");
+	  // If our states did not match, throw Exception
+		throw new LinkedInException("Mismatch on states");
 	}
 } else { 
-	if ((empty($_SESSION['expires_at'])) || (time() > $_SESSION['expires_at'])) {
-		$_SESSION = array();
-	}
+	// If we do not have an access token, send the user through the authenication process
 	if (empty($_SESSION['access_token'])) {
-		$url = $linkedin->getLoginUrl("r_fullprofile r_emailaddress rw_nus r_network"); // Takes scope
+	  // Define the scope for what permissions we need to access the data we want
+	  $scope = "r_fullprofile r_emailaddress rw_nus r_network";
+	  
+	  // $linkedin->getLoginUrl() will build our url and pass it back to our script
+		$url = $linkedin->getLoginUrl($scope); 
+		
+		// Redirect the browser to LinkedIn for authenication
 		header("Location: " . $url)
 	}
 }
-```
-## GET
 ```php
+## GET
+```
 $linkedin->get('/people/~', $options);
 ```
 
