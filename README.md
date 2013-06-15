@@ -36,10 +36,12 @@ if (isset($_GET['code'])) {
 ```
 ## GET
 ```php
+$options = ":(first-name,last-name,headline,picture-url)";
 $linkedin->get('/people/~', $options);
 ```
 
 ## POST
 ```php
-$linkedin->post('/people-search/', $options);
+$options = array("keywords" => "Hacker"); // OR $options = "keywords=Hacker" 
+$linkedin->post('/people-search', $options);
 ```
