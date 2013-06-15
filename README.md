@@ -27,15 +27,15 @@ if (isset($_GET['code'])) {
 	  $scope = "r_fullprofile r_emailaddress rw_nus r_network";
 	  
 	  // $linkedin->getLoginUrl() will build our url and pass it back to our script
-		$url = $linkedin->getLoginUrl($scope); 
+	  $url = $linkedin->getLoginUrl($scope); 
 		
-		// Redirect the browser to LinkedIn for authenication
-		header("Location: " . $url)
+      // Redirect the browser to LinkedIn for authenication
+	  header("Location: " . $url)
 	}
 }
-```php
-## GET
 ```
+## GET
+```php
 $linkedin->get('/people/~', $options);
 ```
 
